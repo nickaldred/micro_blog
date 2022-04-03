@@ -1,17 +1,17 @@
 from flask import Flask, render_template, request, redirect
 import datetime
 from pymongo import MongoClient
-import certifi
+
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
 
-ca = certifi.where()
+
 
 def create_app():
     app = Flask(__name__)
-    client = MongoClient(os.environ.get("MONGODB_URI"), tlsCAFile=ca)
+    client = MongoClient(os.environ.get("MONGODB_URI"))
     app.db = client.Microblog
 
     
