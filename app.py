@@ -1,13 +1,10 @@
 from flask import Flask, render_template, request, redirect
 import datetime
 from pymongo import MongoClient
-import certifi
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
-
-ca = certifi.where()
 
 def create_app():
     app = Flask(__name__)
